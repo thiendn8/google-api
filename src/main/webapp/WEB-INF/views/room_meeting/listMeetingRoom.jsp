@@ -65,7 +65,9 @@
                                 <span class="ellipsisText" title="${listRoom.description}"><c:out value="${listRoom.description}"/></span>
                             </td>
                             <td class="col-md-3 text-center">
-                                <button class="btn btn-danger magin-button" data-toggle="modal" onclick="removeBookingRoom('${listRoom.eventId}')">Remove</button>
+                                <sec:authorize ifAnyGranted="Approver,Manager">
+                                    <button class="btn btn-danger magin-button" data-toggle="modal" onclick="removeBookingRoom('${listRoom.eventId}')">Remove</button>
+                                </sec:authorize>
                                 <button class="btn btn-info magin-button" data-toggle="modal" onclick="updateBookingRoom('${listRoom.eventId}')">Update</button>
                             </td>
                         </tr>

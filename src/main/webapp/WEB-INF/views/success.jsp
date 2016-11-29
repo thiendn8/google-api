@@ -19,8 +19,12 @@
 <body>
 <div class="row">
     <div class="col-lg-12 text-center">
-        <span><c:out value="${name}"/>  have create success an the request to the system </span> <br/>
-        <span><a href="/">Home</a></span>
+        <sec:authorize access="isAuthenticated()">
+            <sec:authentication property="principal.username" var="username" />
+            <h3><b><c:out value="${username}"/></b>  have process success an the request to the system </h3> <br/>
+            <h3><a href="/">Home</a></h3>
+        </sec:authorize>
+
     </div>
 
 </div>

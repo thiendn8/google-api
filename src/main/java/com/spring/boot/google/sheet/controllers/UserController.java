@@ -37,6 +37,7 @@ public class UserController {
     @Autowired
     private UserAndRoleImpl userAndRoleImpl;
 
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
@@ -51,8 +52,6 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user/registration";
         }
-
-
         userService.save(userForm);
 
         securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
@@ -92,6 +91,32 @@ public class UserController {
             userAndRoleImpl.save(userAndRole);
             return "success";
        }catch (Exception ex){
+            logger.error("Process error"+ex.getMessage());
+        }
+        return "error";
+    }
+
+    @PreAuthorize("hasAnyRole('Manager')")
+    @RequestMapping(value = "/updateSettingService", method = RequestMethod.POST)
+    public String updateSettingService(@ModelAttribute("userAndRole")UserAndRole userAndRole){
+        logger.info("data update database:"+userAndRole);
+        try{
+            userAndRoleImpl.updateRole(userAndRole);
+            return "success";
+        }catch (Exception ex){
+            logger.error("Process error"+ex.getMessage());
+        }
+        return "error";
+    }
+
+    @PreAuthorize("hasAnyRole('Manager')")
+    @RequestMapping(value = "/remoteSettingService", method = RequestMethod.POST)
+    public String remoteSettingService(@ModelAttribute("userAndRole")UserAndRole userAndRole){
+        logger.info("data remove database:"+userAndRole);
+        try{
+            userAndRoleImpl.deleteRole(userAndRole);
+            return "success";
+        }catch (Exception ex){
             logger.error("Process error"+ex.getMessage());
         }
         return "error";

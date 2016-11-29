@@ -27,40 +27,127 @@
     <jsp:include page="../../template-layout/navigation.jsp"/>
     <div class="row">
         <div class="col-md-6">
-            <h3 class="color-scrum">Setting service</h3>
+            <div class="container"><h1>Setting service</h1></div>
+            <div id="exTab1" class="container">
+                <ul  class="nav nav-pills">
+                    <li class="active">
+                        <a  href="#1a" data-toggle="tab">Add role User</a>
+                    </li>
+                    <li><a href="#2a" data-toggle="tab">Update role User</a>
+                    </li>
+                    <li><a href="#3a" data-toggle="tab">Remove role user</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="1a">
+                        <div>
+                            <form class="form-signin" action="<%=request.getContextPath()%>/processSettingService" modelAttribute="userAndRole"  method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <div class="form-group">
+                                    <label style="color: white">Users</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="user_Id" name="user_Id" required>
+                                        <option value="">Please choice user</option>
+                                        <c:forEach items="${listUser}" var="listUser">
+                                            <c:if test="${listUser.username != currentUser}">
+                                                <option value="${listUser.id}"><c:out value="${listUser.username}"/></option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white">Role</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="role_Id" name="role_Id" required>
+                                        <option value="">Please choice role</option>
+                                        <c:forEach items="${listRole}" var="listRole">
+                                            <option value="${listRole.id}"><c:out value="${listRole.name}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="2a">
+                        <div>
+                            <form class="form-signin" action="<%=request.getContextPath()%>/updateSettingService" modelAttribute="userAndRole"  method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <div class="form-group">
+                                    <label style="color: white">Users</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="user_Id" required>
+                                        <option value="">Please choice user</option>
+                                        <c:forEach items="${listUser}" var="listUser">
+                                            <c:if test="${listUser.username != currentUser}">
+                                                <option value="${listUser.id}"><c:out value="${listUser.username}"/></option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white">Role</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="role_Id" required>
+                                        <option value="">Please choice role</option>
+                                        <c:forEach items="${listRole}" var="listRole">
+                                            <option value="${listRole.id}"><c:out value="${listRole.name}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-warning btn-block" type="submit">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="3a">
+                        <div>
+                            <form class="form-signin" action="<%=request.getContextPath()%>/remoteSettingService" modelAttribute="userAndRole"  method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <div class="form-group">
+                                    <label style="color: white">Users</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="user_Id" required>
+                                        <option value="">Please choice user</option>
+                                        <c:forEach items="${listUser}" var="listUser">
+                                            <c:if test="${listUser.username != currentUser}">
+                                                <option value="${listUser.id}"><c:out value="${listUser.username}"/></option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white">Role</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="role_Id" required>
+                                        <option value="">Please choice role</option>
+                                        <c:forEach items="${listRole}" var="listRole">
+                                            <option value="${listRole.id}"><c:out value="${listRole.name}"/></option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-warning btn-block" type="submit">Remove</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-    </div>
-    <div>
-       <form class="form-signin" action="<%=request.getContextPath()%>/processSettingService" modelAttribute="userAndRole"  method="post">
-           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-           <div class="form-group">
-               <label style="color: white">Users</label>
-           </div>
-           <div class="form-group">
-               <select class="form-control" id="user_Id" name="user_Id" required>
-                   <option value="">Please choice user</option>
-                   <c:forEach items="${listUser}" var="listUser">
-                       <c:if test="${listUser.username != currentUser}">
-                           <option value="${listUser.id}"><c:out value="${listUser.username}"/></option>
-                       </c:if>
-                   </c:forEach>
-               </select>
-           </div>
-           <div class="form-group">
-               <label style="color: white">Role</label>
-           </div>
-           <div class="form-group">
-               <select class="form-control" id="role_Id" name="role_Id" required>
-                   <option value="">Please choice role</option>
-                   <c:forEach items="${listRole}" var="listRole">
-                       <option value="${listRole.id}"><c:out value="${listRole.name}"/></option>
-                   </c:forEach>
-               </select>
-           </div>
-           <div class="form-group">
-               <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-           </div>
-       </form>
     </div>
 </div>
 <!-- /container -->

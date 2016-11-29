@@ -18,4 +18,14 @@ public class UserAndRoleImpl implements IUserAndRole {
     public void save(UserAndRole userAndRole) {
           userAndRoleRepository.save(userAndRole);
     }
+
+    @Override
+    public void updateRole(UserAndRole userAndRole) {
+        userAndRoleRepository.updateRoleUser(userAndRole.getRole_Id(), userAndRole.getUser_Id());
+    }
+
+    @Override
+    public void deleteRole(UserAndRole userAndRole) {
+       userAndRoleRepository.deleteRoleUser(userAndRole.getUser_Id(), userAndRole.getRole_Id());
+    }
 }

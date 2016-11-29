@@ -8,4 +8,8 @@ import com.spring.boot.google.sheet.model.UserAndRole;
  */
 public interface IUserAndRole {
     void save(UserAndRole userAndRole);
+
+    void updateRole(UserAndRole userAndRole);
+
+    void deleteRole(UserAndRole userAndRole);
 }
