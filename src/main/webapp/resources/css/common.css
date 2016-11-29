@@ -1,0 +1,118 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-image: url('../img/header.jpg');
+    color: white;
+}
+.backgroudpage {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('../img/header.jpg');
+    text-align: center;
+    color: white;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input {
+    margin-top: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin button {
+    margin-top: 10px;
+}
+
+.has-error {
+    color: red
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: darkgray
+}
+label, select{
+    color: black;
+}
+.magin-button{
+    margin: 6px 0 6px 0px;
+}
+.modal-body{
+    height: 350px;
+    overflow: hidden;
+}
+
+@media (min-height: 500px) {
+    .modal-body { height: 400px; }
+}
+
+@media (min-height: 800px) {
+    .modal-body { height: 650px; }
+}
+/*div.modal-body {
+    height: 40ex;
+    width: 40em;
+    overflow: hidden;
+    border: 1px solid #444;
+    margin: 3em;
+}*/
+div.modal-body:hover {
+    overflow: auto;
+}
+.ellipsisText{
+    display: inline-block;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p{
+    margin-bottom:10px;
+}
+.wrapTitle{
+    margin: 10px 0 10px;
+}
+.alert-approved{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+}
+.color-scrum{
+    color: #66afe9 !important;
+}
