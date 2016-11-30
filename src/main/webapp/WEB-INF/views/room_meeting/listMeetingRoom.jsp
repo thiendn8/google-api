@@ -34,6 +34,7 @@
                 <div class="row form-group">
                     <select class="form-control" id="idChangeRoom" onchange="reGetlistCalendarevents(this.value)">
                         <option value="">Please choice room name</option>
+                        <option value=""></option>
                         <c:forEach items="${listRoomname}" var="listRoomname">
                             <option value="${listRoomname}"><c:out value="${listRoomname}"/></option>
                         </c:forEach>

@@ -169,7 +169,8 @@ public class Quickstart_Calendar {
                 }
             }
             EventReminder[] reminderOverrides = new EventReminder[] {
-                    new EventReminder().setMethod("email").setMinutes(24 * 60),
+                    new EventReminder().setMethod("email").setMinutes(10),
+                    //new EventReminder().setMethod("email").setMinutes(24 * 60),
                     new EventReminder().setMethod("popup").setMinutes(10),
             };
             Event.Reminders reminders = new Event.Reminders()
